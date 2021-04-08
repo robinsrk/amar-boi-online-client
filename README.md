@@ -9,7 +9,7 @@ This is the client side of the project [ amar-boi-online ](https://amar-boi-onli
 - [X] Admin page will also be private route. There must be a button at left side to show sidebar. There must be an option to add product in admin page.
 - [X] Must change the name or website with meaningful name
 
-## Bonus TODO [3/6]
+## Bonus TODO [6/6]
 - [x] Implement delete button in admin page.
 - [x] Add spinner in at least homepage.
 - [X] Use environment variable and .gitignore.
@@ -17,7 +17,7 @@ This is the client side of the project [ amar-boi-online ](https://amar-boi-onli
 - [X] At least home page must be responsive.
 - [x] Readme file must be customized.
 
-## Submit TODO [0/3]
+## Submit TODO [3/3]
 - [x] Live site url firebase/netlify
 - [x] Client side github link
 - [x] Server side github link
