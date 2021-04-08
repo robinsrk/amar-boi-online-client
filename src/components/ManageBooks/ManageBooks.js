@@ -14,7 +14,15 @@ const ManageBooks = () => {
     fetch("https://vast-woodland-42956.herokuapp.com/books")
       .then((res) => res.json())
       .then((data) => setBooks(data));
-  });
+  }, []);
+  console.log(books);
+  const handleDelete = (id) => {
+    // fetch("https:vast-woodland-42956.herokuapp.com/delete")
+    fetch(`https://vast-woodland-42956.herokuapp.com/delete/${id}`, {
+      method: "DELETE",
+    });
+    console.log(id);
+  };
 
   return (
     <div>
@@ -42,7 +50,12 @@ const ManageBooks = () => {
                     <MDBBtn size="sm" color="primary" className="p-2">
                       <MDBIcon size="lg" icon="plus-square" />
                     </MDBBtn>
-                    <MDBBtn size="sm" color="danger" className="p-2">
+                    <MDBBtn
+                      onClick={() => handleDelete(book._id)}
+                      size="sm"
+                      color="danger"
+                      className="p-2"
+                    >
                       <MDBIcon size="lg" icon="trash-alt" />
                     </MDBBtn>
                   </th>

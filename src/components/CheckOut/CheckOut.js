@@ -1,4 +1,10 @@
-import { MDBBtn, MDBTable, MDBTableBody, MDBTableHead } from "mdbreact";
+import {
+  MDBLink,
+  MDBBtn,
+  MDBTable,
+  MDBTableBody,
+  MDBTableHead,
+} from "mdbreact";
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { userContext } from "../../App";
@@ -21,7 +27,6 @@ const CheckOut = () => {
     if (minute < 10) {
       minute = "0" + minute;
     }
-    console.log(hour);
     if (hour > 11) {
       format = "PM";
       if (hour > 12) {
@@ -30,7 +35,6 @@ const CheckOut = () => {
     }
     if (hour < 10) {
       hour = "0" + hour;
-      console.log("came");
     }
     const date =
       today.getDate() +
@@ -45,15 +49,13 @@ const CheckOut = () => {
       " " +
       format;
     const newOrder = { ...loggedInUser, name, author, price, photo, date };
-    console.log(date);
-    fetch("http://localhost:3000/addOrder", {
+    fetch("https://vast-woodland-42956.herokuapp.com/addOrder", {
       method: "POST",
       body: JSON.stringify(newOrder),
       headers: {
         "Content-type": "application/json; charset=UTF-8",
       },
-    }).then((window.location = "http://localhost:3300/orders"));
-    console.log(newOrder);
+    });
   };
   return (
     <div>
@@ -80,9 +82,11 @@ const CheckOut = () => {
           </tr>
         </MDBTableBody>
       </MDBTable>
-      <MDBBtn className="" gradient="purple" onClick={handleCheckout}>
-        Checkout
-      </MDBBtn>
+      <MDBLink to="/orders">
+        <MDBBtn className="" gradient="purple" onClick={handleCheckout}>
+          Checkout
+        </MDBBtn>
+      </MDBLink>
     </div>
   );
 };

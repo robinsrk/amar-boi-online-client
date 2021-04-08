@@ -10,6 +10,7 @@ import {
   MDBBtn,
   MDBRow,
   MDBLink,
+  MDBSpinner,
 } from "mdbreact";
 import "./Home.css";
 import SearchBox from "../SearchBox/SearchBox";
@@ -27,6 +28,13 @@ const Home = () => {
       <div className="d-flex justify-content-center">
         <SearchBox></SearchBox>
       </div>
+      {books.length === 0 && (
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border text-primary" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      )}
       <div
         style={{
           display: "flex",
