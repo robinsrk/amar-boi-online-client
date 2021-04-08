@@ -6,11 +6,7 @@ import AddBooks from "../AddBooks/AddBooks";
 const Admin = () => {
   return (
     <div>
-      <Header></Header>
-      <div className="d-flex">
-        <Sidebar></Sidebar>
-        <AddBooks></AddBooks>
-      </div>
+      <AddBooks></AddBooks>
     </div>
   );
 };

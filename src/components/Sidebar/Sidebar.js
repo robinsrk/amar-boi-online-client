@@ -21,7 +21,7 @@ const Sidebar = () => {
         <li>
           <MDBLink to="/admin/editBook" className="text-white">
             <MDBIcon className="pr-1" far icon="edit" />
-            <span>Edit Book</span>
+            Edit Book
           </MDBLink>
         </li>
       </ul>

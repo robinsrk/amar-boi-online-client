@@ -54,7 +54,7 @@ const Header = () => {
                 </div>
               ) : (
                 <MDBNavLink to="/login">
-                  <MDBBtn gradient="blue" size="sm" className="login-btn">
+                  <MDBBtn gradient="purple" size="sm" className="login-btn">
                     Login
                   </MDBBtn>
                 </MDBNavLink>

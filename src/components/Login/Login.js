@@ -11,6 +11,7 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 const Login = () => {
+  const location = useLocation();
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
   const googleProvider = new firebase.auth.GoogleAuthProvider();
   const [user, setUser] = useState({
@@ -22,9 +23,8 @@ const Login = () => {
     password: "",
     confirm: "",
   });
-  // const location = useLocation();
-  // const history = useHistory();
-  // const { from } = location.state || { from: { pathname: "/" } };
+  const history = useHistory();
+  const { from } = location.state || { from: { pathname: "/" } };
   const handleSubmit = (event) => {
     if (user.newUser && user.email && user.password) {
       firebase
@@ -40,7 +40,7 @@ const Login = () => {
           };
           setUser(signedInUser);
           setLoggedInUser(signedInUser);
-          // history.replace(from);
+          history.replace(from);
         });
     } else if (!user.newUser && user.email && user.password) {
       if (user.confirm === user.password) {
@@ -58,7 +58,7 @@ const Login = () => {
             };
             setUser(signedInUser);
             setLoggedInUser(signedInUser);
-            // history.replace(from);
+            history.replace(from);
           })
           .catch((errror) => {
             console.log(errror);
@@ -104,7 +104,7 @@ const Login = () => {
         };
         setUser(signedInUser);
         setLoggedInUser(signedInUser);
-        // history.replace(from);
+        history.replace(from);
       })
       .catch((error) => {
         alert(error.message);
