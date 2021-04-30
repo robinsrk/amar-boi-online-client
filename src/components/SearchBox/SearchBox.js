@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SearchBox.css";
 import { MDBCol, MDBFormInline, MDBBtn } from "mdbreact";
 const SearchBox = () => {
+  const [search, setSearch] = useState("");
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
   return (
     <div>
       <div className="d-flex justify-content-center">
@@ -12,6 +16,7 @@ const SearchBox = () => {
               type="text"
               placeholder="Search"
               aria-label="Search"
+              onBlur={handleSearch}
             />
             <MDBBtn
               gradient="blue"

@@ -18,7 +18,6 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
   const [loggedInUser, setLoggedInUser] = useContext(userContext);
-  // console.log(loggedInUser);
   return (
     <div>
       <MDBNavbar dark expand="md">

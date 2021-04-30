@@ -10,23 +10,47 @@ import {
   MDBBtn,
   MDBRow,
   MDBLink,
-  MDBSpinner,
+  MDBFormInline,
 } from "mdbreact";
 import "./Home.css";
-import SearchBox from "../SearchBox/SearchBox";
 const Home = () => {
+  const [search, setSearch] = useState("");
+
+  const handleSearch = (event) => {
+    setSearch(event.target.value);
+  };
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    fetch("https://vast-woodland-42956.herokuapp.com/books")
+    fetch("http://localhost:3300/books?search=" + search)
       .then((res) => res.json())
       .then((data) => setBooks(data));
-  });
+  }, [search]);
 
   return (
     <div>
       <Header></Header>
       <div className="d-flex justify-content-center">
-        <SearchBox></SearchBox>
+        <div className="d-flex justify-content-center">
+          <MDBCol md="12" className="d-flex justify-content-center">
+            <MDBFormInline className="md-form mr-auto mb-4">
+              <input
+                className="form-control mr-sm-2"
+                type="text"
+                placeholder="Search"
+                aria-label="Search"
+                onChange={handleSearch}
+              />
+              <MDBBtn
+                gradient="blue"
+                size="sm"
+                type="submit"
+                className="mr-auto search-btn"
+              >
+                Search
+              </MDBBtn>
+            </MDBFormInline>
+          </MDBCol>
+        </div>
       </div>
       {books.length === 0 && (
         <div className="d-flex justify-content-center">
